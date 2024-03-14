@@ -22,16 +22,6 @@ public class spawn_Entity : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
-    {
-        spawnPlayer();
-        spawn_MyTeam_Entity();
-        
-    }
-    void Update()
-    {
-        
-    }
     public void spawnPlayer()
     {
         Instantiate(Player, StartPosition_Player, Quaternion.identity);
