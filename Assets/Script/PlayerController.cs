@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
 
                 }
                 if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
@@ -89,6 +90,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
                 {
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
              
 
@@ -111,6 +114,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
                 {
@@ -120,6 +124,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
                 {
@@ -129,6 +134,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
 
                
@@ -142,6 +148,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
                 {
@@ -151,6 +158,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
                 {
@@ -160,6 +168,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                
                 break;
@@ -172,6 +181,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
                 {
@@ -181,6 +191,7 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
                 {
@@ -190,9 +201,11 @@ public class PlayerController : MonoBehaviour
                     MoveHistory(current_Direction_player, Team_Players[0]);
                     Move_History.Insert(0, current_Direction_player);
                     Delete_History();
+                    Chack_EndGame();
                 }
                 break;
         }
+        
     }
     public void Action_Hit_Player()
     {
@@ -281,12 +294,13 @@ public class PlayerController : MonoBehaviour
             Team_Players.Insert(0,BackMyTeam);
         }
     }
-    public void MyTeamDie()
+    public void Chack_EndGame()
     {
-        //    for (int i = 0; i < Team_Players.Count; i++)
-        //{
-        //    Destroy
-        //}
+        if (Team_Players.Count == 0)
+        {
+            Debug.Log("asd");
+            UI_Manager.instance.UI_End_Game();
+        }
     }
 
 
