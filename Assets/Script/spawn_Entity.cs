@@ -25,6 +25,7 @@ public class spawn_Entity : MonoBehaviour
     public void spawnPlayer()
     {
         Instantiate(Player, StartPosition_Player, Quaternion.identity);
+        PlayerController.instance.can_UseController = true;
 
     }
     public void spawn_MyTeam_Entity()

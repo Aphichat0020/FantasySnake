@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
+    public bool can_UseController = false;
+
     public Current_Positon current_Direction_player;
     public List<GameObject> List_Team_Player_Spawn = new List<GameObject>();
     public int Team_Player_Speed = 10;
@@ -66,145 +68,147 @@ public class PlayerController : MonoBehaviour
     }
     public void Controller_Player()
     {
-        
-        switch (current_Direction_player)
+        if (can_UseController == true)
         {
-            case Current_Positon.Up:
+            switch (current_Direction_player)
+            {
+                case Current_Positon.Up:
 
-                if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
-                {
-                    
-                    current_Direction_player = Current_Positon.Up;
-                    transform.position = transform.position + new Vector3(0, 0, 1);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
+                    if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
+                    {
 
-                }
-                if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
-                {
-                    current_Direction_player = Current_Positon.Left;
-                    transform.position = transform.position + new Vector3(-1, 0, 0);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                   // Chack_EndGame();
-                }
-                if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
-                {
-                    current_Direction_player = Current_Positon.Right;
-                    transform.position = transform.position + new Vector3(1, 0, 0);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
-             
+                        current_Direction_player = Current_Positon.Up;
+                        transform.position = transform.position + new Vector3(0, 0, 1);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
 
-                break;
-            case Current_Positon.Left:
-                if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
-                {
-                    current_Direction_player = Current_Positon.Left;
-                    transform.position = transform.position + new Vector3(-1, 0, 0);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
-                if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
-                {
-                    current_Direction_player = Current_Positon.Up;
-                    transform.position = transform.position + new Vector3(0, 0, 1);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
-                if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
-                {
-                    current_Direction_player = Current_Positon.Down;
-                    transform.position = transform.position + new Vector3(0, 0, -1);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
+                    }
+                    if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Left;
+                        transform.position = transform.position + new Vector3(-1, 0, 0);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        // Chack_EndGame();
+                    }
+                    if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Right;
+                        transform.position = transform.position + new Vector3(1, 0, 0);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
 
-               
-                break;
-            case Current_Positon.Right:
-                if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
-                {
-                    current_Direction_player = Current_Positon.Right;
-                    transform.position = transform.position + new Vector3(1, 0, 0);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                   // Chack_EndGame();
-                }
-                if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
-                {
-                    current_Direction_player = Current_Positon.Up;
-                    transform.position = transform.position + new Vector3(0, 0, 1);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
-                if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
-                {
-                    current_Direction_player = Current_Positon.Down;
-                    transform.position = transform.position + new Vector3(0, 0, -1);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                   // Chack_EndGame();
-                }
-               
-                break;
-            case Current_Positon.Down:
-                if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
-                {
-                    current_Direction_player = Current_Positon.Down;
-                    transform.position = transform.position + new Vector3(0, 0, -1);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
-                if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
-                {
-                    current_Direction_player = Current_Positon.Left;
-                    transform.position = transform.position + new Vector3(-1, 0, 0);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
-                if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
-                {
-                    current_Direction_player = Current_Positon.Right;
-                    transform.position = transform.position + new Vector3(1, 0, 0);
-                    positon_History();
-                    MoveHistory(current_Direction_player, Team_Players[0]);
-                    Move_History.Insert(0, current_Direction_player);
-                    Delete_History();
-                    //Chack_EndGame();
-                }
-                break;
+
+                    break;
+                case Current_Positon.Left:
+                    if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Left;
+                        transform.position = transform.position + new Vector3(-1, 0, 0);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
+                    if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Up;
+                        transform.position = transform.position + new Vector3(0, 0, 1);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
+                    if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Down;
+                        transform.position = transform.position + new Vector3(0, 0, -1);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
+
+
+                    break;
+                case Current_Positon.Right:
+                    if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Right;
+                        transform.position = transform.position + new Vector3(1, 0, 0);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        // Chack_EndGame();
+                    }
+                    if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Up;
+                        transform.position = transform.position + new Vector3(0, 0, 1);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
+                    if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Down;
+                        transform.position = transform.position + new Vector3(0, 0, -1);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        // Chack_EndGame();
+                    }
+
+                    break;
+                case Current_Positon.Down:
+                    if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Down;
+                        transform.position = transform.position + new Vector3(0, 0, -1);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
+                    if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Left;
+                        transform.position = transform.position + new Vector3(-1, 0, 0);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
+                    if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
+                    {
+                        current_Direction_player = Current_Positon.Right;
+                        transform.position = transform.position + new Vector3(1, 0, 0);
+                        positon_History();
+                        MoveHistory(current_Direction_player, Team_Players[0]);
+                        Move_History.Insert(0, current_Direction_player);
+                        Delete_History();
+                        //Chack_EndGame();
+                    }
+                    break;
+            }
         }
         
     }
@@ -299,7 +303,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Team_Players.Count == 0)
         {
+            can_UseController = false;
             UI_Manager.instance.UI_End_Game();
+
         }
     }
 

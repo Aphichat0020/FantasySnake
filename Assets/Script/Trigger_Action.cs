@@ -35,6 +35,8 @@ public class Trigger_Action : MonoBehaviour
             else
             {
                 Debug.Log("Game Over"+ name + collider.name);
+                UI_Manager.instance.UI_End_Game();
+                PlayerController.instance.can_UseController = false;
             }
 
           
