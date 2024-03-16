@@ -118,8 +118,9 @@ GameObject:
   - component: {fileID: 8516675864337659261}
   - component: {fileID: 2498722157231399579}
   - component: {fileID: 936609339606392549}
+  - component: {fileID: 8279493653391003133}
   m_Layer: 0
-  m_Name: Team_Character_1
+  m_Name: Team_Character_2
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4628861838072819886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -169,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d5661a10238bc04e85bf668579a985e, type: 2}
+  - {fileID: 2100000, guid: 0870ecb9509647342b3b15c86b52d4e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -239,3 +240,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8279493653391003133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628861838072819886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbf94b9c9eeb3a4abe2c32dc5b640c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Healt_Player: 0
+  Attack_Player: 0
+  Min_Random_Start_Healt_Player: 1
+  Min_Random_Start_Attack: 1
+  Max_Random_Start_Healt_Player: 5
+  Max_Random_Start_Attack: 5
+  Random_Healt_LevelUP: 5
+  Random_Attack_LevelUP: 5
+  Max_Healt_Player: 30
+  MaX_Attack_Player: 30

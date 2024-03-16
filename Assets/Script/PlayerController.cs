@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-           
+
         }
         else
         {
@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public enum Current_Positon{
+    public enum Current_Positon
+    {
         Up,
         Left,
         Right,
@@ -47,20 +48,21 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Controller_Player();
-      
-        
-         int i = 0;
-        
+
+
+        int i = 0;
+
         foreach (GameObject Team_Player in Team_Players)
         {
-           
-            Vector3 pos = positon_History_Team_Players[Mathf.Min(i , positon_History_Team_Players.Count-1)];
-            Vector3 posforward = pos - Team_Player.transform.position;
-            Team_Player.transform.position += posforward* Team_Player_Speed* Time.deltaTime;
 
-            Current_Positon dir = Move_History[Mathf.Min(i,Move_History.Count - 1)];
+            Vector3 pos = positon_History_Team_Players[Mathf.Min(i, positon_History_Team_Players.Count - 1)];
+            Vector3 posforward = pos - Team_Player.transform.position;
+            Team_Player.transform.position += posforward * Team_Player_Speed * Time.deltaTime;
+
+            Current_Positon dir = Move_History[Mathf.Min(i, Move_History.Count - 1)];
 
             MoveHistory(dir, Team_Player);
+            
             i++;
         }
         Chang_MyTeam();
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                        
 
                     }
                     if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
@@ -94,7 +96,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        // Chack_EndGame();
+                        
+
                     }
                     if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
                     {
@@ -104,7 +107,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                        
+
                     }
 
 
@@ -118,7 +122,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                       
+
                     }
                     if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
                     {
@@ -128,7 +133,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                       
+
                     }
                     if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
                     {
@@ -138,7 +144,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                       
+
                     }
 
 
@@ -152,7 +159,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        // Chack_EndGame();
+                        
+
                     }
                     if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
                     {
@@ -162,7 +170,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                     
+
                     }
                     if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.DownArrow)))
                     {
@@ -172,7 +181,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        // Chack_EndGame();
+                      
+
                     }
 
                     break;
@@ -185,7 +195,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                     
+
                     }
                     if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
                     {
@@ -195,7 +206,8 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                    
+
                     }
                     if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
                     {
@@ -205,14 +217,15 @@ public class PlayerController : MonoBehaviour
                         MoveHistory(current_Direction_player, Team_Players[0]);
                         Move_History.Insert(0, current_Direction_player);
                         Delete_History();
-                        //Chack_EndGame();
+                      
+
                     }
                     break;
             }
         }
-        
+
     }
-    public void Action_Hit_Player()
+    public void Action_Hit()
     {
         Move_History.RemoveAt(0);
         positon_History_Team_Players.RemoveAt(0);
@@ -223,15 +236,14 @@ public class PlayerController : MonoBehaviour
     public void AddTeam_Start()
     {
         int i = 0;
-          Vector3 pos = positon_History_Team_Players[Mathf.Max(i, positon_History_Team_Players.Count-1)];
-          GameObject team = Instantiate(List_Team_Player_Spawn[0], pos, Quaternion.identity);
-          Team_Players.Add(team);
+        Vector3 pos = positon_History_Team_Players[Mathf.Max(i, positon_History_Team_Players.Count - 1)];
+        GameObject team = Instantiate(List_Team_Player_Spawn[0], pos, Quaternion.identity);
+        Team_Players.Add(team);
 
     }
     public void AddTeam(int Index)
     {
         int i = 0;
-       // GameObject GetTeam =
 
         Vector3 pos = positon_History_Team_Players[Mathf.Max(i, positon_History_Team_Players.Count - 1)];
         GameObject team = Instantiate(List_Team_Player_Spawn[Index], pos, Quaternion.identity);
@@ -241,6 +253,7 @@ public class PlayerController : MonoBehaviour
     public void positon_History()
     {
         positon_History_Team_Players.Insert(0, transform.position);
+        
     }
     public void MoveHistory(Current_Positon dir, GameObject target)
     {
@@ -250,7 +263,7 @@ public class PlayerController : MonoBehaviour
         {
             case Current_Positon.Up:
                 degree = 0;
-               target.transform.eulerAngles = new Vector3(0, degree, 0);
+                target.transform.eulerAngles = new Vector3(0, degree, 0);
                 break;
             case Current_Positon.Left:
                 degree = -90;
@@ -269,11 +282,11 @@ public class PlayerController : MonoBehaviour
     public void Delete_History()
     {
 
-        for (int i = Team_Players.Count+1; i < Move_History.Count; i++)
+        for (int i = Team_Players.Count + 1; i < Move_History.Count; i++)
         {
             Move_History.RemoveAt(i);
         }
-        for (int i = Team_Players.Count+1; i < positon_History_Team_Players.Count; i++)
+        for (int i = Team_Players.Count + 1; i < positon_History_Team_Players.Count; i++)
         {
             positon_History_Team_Players.RemoveAt(i);
         }
@@ -283,7 +296,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            
+
             GameObject frontMyTeam = Team_Players[0];
             Team_Players.RemoveAt(0);
             Team_Players.Add(frontMyTeam);
@@ -292,11 +305,11 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            
+
             GameObject BackMyTeam = Team_Players[Team_Players.Count - 1];
-           
+
             Team_Players.RemoveAt(Team_Players.Count - 1);
-            Team_Players.Insert(0,BackMyTeam);
+            Team_Players.Insert(0, BackMyTeam);
         }
     }
     public void Chack_EndGame()
@@ -310,5 +323,5 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    
+
 }

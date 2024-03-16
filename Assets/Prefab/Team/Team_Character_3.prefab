@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 8516675864337659261}
   - component: {fileID: 2498722157231399579}
   - component: {fileID: 936609339606392549}
+  - component: {fileID: 1775558138750311920}
   m_Layer: 0
   m_Name: Team_Character_3
   m_TagString: Team
@@ -239,3 +240,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1775558138750311920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628861838072819886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbf94b9c9eeb3a4abe2c32dc5b640c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Healt_Player: 0
+  Attack_Player: 0
+  Min_Random_Start_Healt_Player: 1
+  Min_Random_Start_Attack: 1
+  Max_Random_Start_Healt_Player: 5
+  Max_Random_Start_Attack: 5
+  Random_Healt_LevelUP: 5
+  Random_Attack_LevelUP: 5
+  Max_Healt_Player: 30
+  MaX_Attack_Player: 30

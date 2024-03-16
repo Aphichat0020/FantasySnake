@@ -11,7 +11,7 @@ public class Trigger_Action : MonoBehaviour
         
         if (collider.gameObject.tag == ("wall"))
         {
-            PlayerController.instance.Action_Hit_Player();
+            PlayerController.instance.Action_Hit();
           
             Destroy(PlayerController.instance.Team_Players[0]);
             PlayerController.instance.Team_Players.RemoveAt(0);
