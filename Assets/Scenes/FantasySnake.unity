@@ -9140,6 +9140,8 @@ MonoBehaviour:
   - {fileID: 4628861838072819886, guid: b9b793e73cb5f544d8a0ee52d7df6617, type: 3}
   - {fileID: 4628861838072819886, guid: d37319ebafa5b14469d5cc49fe47338f, type: 3}
   - {fileID: 4628861838072819886, guid: b225b9eb2316301419e5833cd439b216, type: 3}
+  Enemy_Entity:
+  - {fileID: 4628861838072819886, guid: f38ca63d7dfd1c94aa39f9001e1a402a, type: 3}
 --- !u!114 &508056581
 MonoBehaviour:
   m_ObjectHideFlags: 0
