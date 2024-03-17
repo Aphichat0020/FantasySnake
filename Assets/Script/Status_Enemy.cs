@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Status_Enemy : MonoBehaviour
 {
+    public static Status_Enemy instance;
     [Header("Status")]
     public int Healt_Enemy;
     public int Attack_Enemy;
@@ -28,7 +29,13 @@ public class Status_Enemy : MonoBehaviour
     public Transform HP_Text_to_Rotate;
     public Transform ATK_Text_to_Rotate;
 
-
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         Random_Status_Enemy();
@@ -52,5 +59,12 @@ public class Status_Enemy : MonoBehaviour
         Healt_Enemy = Random.Range(Min_Random_Start_Healt_Enemy, Max_Random_Start_Healt_Enemy);
         Attack_Enemy = Random.Range(Min_Random_Start_Attack_Enemy, Max_Random_Start_Attack_Enemy);
     }
-   
+    public void TakeDamage(int Damage)
+    {
+        Healt_Enemy = Healt_Enemy - Damage;
+        if (Healt_Enemy <= 0)
+        {
+            Healt_Enemy = 0;
+        }
+    }
 }

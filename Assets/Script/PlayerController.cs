@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public List<Current_Positon> Move_History = new List<Current_Positon>();
     public List<Vector3> positon_History_Team_Players = new List<Vector3>();
 
+   
+
     public void Awake()
     {
         if (instance == null)

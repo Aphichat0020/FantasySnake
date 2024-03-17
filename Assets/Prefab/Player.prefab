@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9184757224362926511}
   - component: {fileID: 2299968422314748861}
-  - component: {fileID: 5010498883930991019}
+  - component: {fileID: 7434717978727070123}
   - component: {fileID: 4933127121263675060}
   - component: {fileID: 5935711629711087007}
   m_Layer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0154749a3ef03489466063d544731c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  can_UseController: 0
   current_Direction_player: 0
   List_Team_Player_Spawn:
   - {fileID: 4628861838072819886, guid: 6dcc6e47635ba874abb4f906de67205f, type: 3}
@@ -57,7 +58,7 @@ MonoBehaviour:
   Team_Players: []
   Move_History: 
   positon_History_Team_Players: []
---- !u!114 &5010498883930991019
+--- !u!114 &7434717978727070123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,9 +67,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3480903469783352380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e117c18890380e498dd8f642fd02795, type: 3}
+  m_Script: {fileID: 11500000, guid: 4793210047588f94abcb925570af1d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Index: 0
 --- !u!65 &4933127121263675060
 BoxCollider:
   m_ObjectHideFlags: 0
