@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.XR;
 
 public class Status_Player : MonoBehaviour
 {
@@ -10,11 +12,11 @@ public class Status_Player : MonoBehaviour
 
     [Header("Min Random Status")]
     public int Min_Random_Start_Healt_Player;
-    public int Min_Random_Start_Attack;
+    public int Min_Random_Start_Attack_Player;
 
     [Header("Max Random Status")]
     public int Max_Random_Start_Healt_Player;
-    public int Max_Random_Start_Attack;
+    public int Max_Random_Start_Attack_Player;
 
     [Header("Random Status LevelUP")]
     public int Random_Healt_LevelUP;
@@ -24,6 +26,13 @@ public class Status_Player : MonoBehaviour
     public int Max_Healt_Player;
     public int MaX_Attack_Player;
 
+    [Header("Text Status")]
+    public TextMeshProUGUI Text_Healt_Player;
+    public TextMeshProUGUI Text_Attack_Player;
+
+    public GameObject camera;
+    public Transform HP_Text_to_Rotate;
+    public Transform ATK_Text_to_Rotate;
 
     public float currentTime;
     public float StartTime;  
@@ -35,6 +44,7 @@ public class Status_Player : MonoBehaviour
     }
     public void Update()
     {
+        camera = GameObject.Find("Main Camera");
         currentTime -= 1 *Time.deltaTime;
         if(currentTime <= 0)
         {
@@ -42,12 +52,17 @@ public class Status_Player : MonoBehaviour
             currentTime = StartTime;
 
         }
+        Text_Healt_Player.text = "HP : "+ Healt_Player.ToString();
+        Text_Attack_Player.text = "ATK : " + Attack_Player.ToString();
+
+        HP_Text_to_Rotate.rotation = Quaternion.Slerp(HP_Text_to_Rotate.rotation, camera.transform.rotation, 100f * Time.deltaTime);
+        ATK_Text_to_Rotate.rotation = Quaternion.Slerp(ATK_Text_to_Rotate.rotation,camera.transform.rotation, 100f * Time.deltaTime);
     }
 
     public void Random_Status_Player()
     {
         Healt_Player = Random.Range(Min_Random_Start_Healt_Player, Max_Random_Start_Healt_Player);
-        Attack_Player = Random.Range(Min_Random_Start_Attack, Max_Random_Start_Attack);
+        Attack_Player = Random.Range(Min_Random_Start_Attack_Player, Max_Random_Start_Attack_Player);
     }
     public void Level_Up_Status_player()
     {

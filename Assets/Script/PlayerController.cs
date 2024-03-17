@@ -296,18 +296,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
             GameObject frontMyTeam = Team_Players[0];
             Team_Players.RemoveAt(0);
             Team_Players.Add(frontMyTeam);
-            //Team_Players.Reverse();
-
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-
             GameObject BackMyTeam = Team_Players[Team_Players.Count - 1];
-
             Team_Players.RemoveAt(Team_Players.Count - 1);
             Team_Players.Insert(0, BackMyTeam);
         }
