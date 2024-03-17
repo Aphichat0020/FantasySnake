@@ -38,7 +38,7 @@ public class Status_Player : MonoBehaviour
     public float currentTime;
     public float StartTime;
 
-    public bool MaxState;
+   
     public void Awake()
     {
         if (instance == null)
@@ -55,22 +55,15 @@ public class Status_Player : MonoBehaviour
     public void Update()
     {
         camera = GameObject.Find("Main Camera");
-        
-        if(Healt_Player != Max_Healt_Player && Attack_Player != MaX_Attack_Player)
-        {
-            MaxState = false;
-
-            if (!MaxState)
+      
+            currentTime -= 1 * Time.deltaTime;
+            if (currentTime < 0)
             {
-                currentTime -= 1 * Time.deltaTime;
-                if (currentTime < 0)
-                {
-                    Level_Up_Status_player();
-                    currentTime = StartTime;
-
-                }
+                Level_Up_Status_player();
+                currentTime = StartTime;
             }
-        }
+        
+      
         
         Text_Healt_Player.text = "HP : "+ Healt_Player.ToString();
         Text_Attack_Player.text = "ATK : " + Attack_Player.ToString();
@@ -96,7 +89,7 @@ public class Status_Player : MonoBehaviour
         if (Attack_Player >= MaX_Attack_Player)
         {
             Attack_Player = MaX_Attack_Player;
-            MaxState = true;
+            
         }
     }
 

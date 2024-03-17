@@ -71,6 +71,7 @@ public class Entity : MonoBehaviour
         else if (playerAttck.Healt_Player > 0 && Status_Enemy.instance.Healt_Enemy > 0)
         {
             PlayerController.instance.Action_Hit();
+            Debug.Log("Battle");
         }
         else
         {
@@ -79,7 +80,7 @@ public class Entity : MonoBehaviour
             PlayerController.instance.Team_Players.RemoveAt(0);
             Destroy(this.gameObject);
             PlayerController.instance.Action_Hit();
-            Debug.Log("Battle");
+            Debug.Log("AllDie");
            
         }
 

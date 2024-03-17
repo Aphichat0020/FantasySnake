@@ -395,8 +395,8 @@ MonoBehaviour:
   Max_Random_Start_Attack_Player: 5
   Random_Healt_LevelUP: 5
   Random_Attack_LevelUP: 5
-  Max_Healt_Player: 30
-  MaX_Attack_Player: 30
+  Max_Healt_Player: 100
+  MaX_Attack_Player: 100
   Text_Healt_Player: {fileID: 7786955613564414396}
   Text_Attack_Player: {fileID: 6687667432798121095}
   camera: {fileID: 0}
